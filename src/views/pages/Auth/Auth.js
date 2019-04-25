@@ -1,5 +1,8 @@
 import Login from '@/blocks/Login';
 
+import _ from './auth.scss';
+
+
 const login = new Login();
 
 class Auth {
