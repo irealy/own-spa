@@ -2,12 +2,12 @@ import "@babel/polyfill";
 
 import Router from './router';
 import Home from './views/pages/Home';
-import About from './views/pages/About';
+import Auth from './views/pages/Auth';
 
 
 const routes = {
   '/': Home,
-  '/about': About
+  '/auth': Auth
 };
 
-const router = new Router(routes);
+new Router(routes);
