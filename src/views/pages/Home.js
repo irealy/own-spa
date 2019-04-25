@@ -1,10 +1,10 @@
-class Home{
+class Home {
     async render() {
         return `
             <section class="section">
                 <h1> Home </h1>
                 <ul>
-                    <li>Loh</li>
+                    <li><a href="#/auth">Auth</a> </li>
                     <li>Pidr</li>
                 </ul>
             </section>
