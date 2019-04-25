@@ -1,14 +1,13 @@
-let About = {
-  render : async () => {
-      let view = `
-          <section class="section">
-            About
-          </section>
-      `
-      return view
-  }, 
-  after_render: async () => {}
+class About {
+  async render() {
+    return `
+      <section class="section">
+        About
+      </section>
+    `
+  }
 
+  async afterRender() {}
 }
 
 export default About;
