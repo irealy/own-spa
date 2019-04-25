@@ -6,8 +6,8 @@ module.exports = {
     app: './src/app.js',
   },
   output: {
+    path: path.resolve(__dirname, './dist'),
     filename: '[name].js',
-    path: __dirname + '/dist'
   },
   devtool: 'eval-source-map',
   watch: true,
