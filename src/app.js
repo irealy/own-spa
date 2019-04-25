@@ -1,8 +1,8 @@
 import "@babel/polyfill";
 
-import Router from './router';
-import Home from './views/pages/Home';
-import Auth from './views/pages/Auth';
+import Router from '@/router';
+import Home from '@/views/pages/Home';
+import Auth from '@/views/pages/Auth';
 
 
 const routes = {

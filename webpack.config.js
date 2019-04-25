@@ -11,6 +11,11 @@ module.exports = {
   },
   devtool: 'eval-source-map',
   watch: true,
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/')
+    }
+  },
   module: {
     rules: [
       {

@@ -1,4 +1,4 @@
-import Login from '../blocks/Login.js';
+import Login from '@/blocks/Login';
 
 const login = new Login();
 
