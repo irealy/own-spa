@@ -4,7 +4,7 @@ class Home {
             <section class="section">
                 <h1> Home </h1>
                 <ul>
-                    <li><a href="#/auth">Auth</a> </li>
+                    <li><a href="#/login">Login</a> </li>
                     <li>Pidr</li>
                 </ul>
             </section>

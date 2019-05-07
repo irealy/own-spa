@@ -1,13 +1,15 @@
 import "@babel/polyfill";
 
+import _ from '@/css/reset.scss';
+
 import Router from '@/router';
 import Home from '@/views/pages/Home/Home';
-import Auth from '@/views/pages/Auth/Auth';
+import Login from '@/views/pages/Login/Login';
 
 
 const routes = {
   '/': Home,
-  '/auth': Auth
+  '/login': Login
 };
 
 new Router(routes);
