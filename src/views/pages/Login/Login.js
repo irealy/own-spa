@@ -13,20 +13,20 @@ class Login {
     this.password = new Inputfield({
       type: 'password',
       placeholder: 'Password',
-      required: true
+      required: true,
+      
     })
   }
   async render() {
-
     return `
       <div class="login">
         <div class="login__container">
           <form class="login__form">
             <div class="login__inputfield">
-              ${this.email.render()}
+              ${await this.email.init()}
             </div>
             <div class="login__inputfield">
-              ${this.password.render()}
+              ${await this.password.init()}
             </div>
             <button class="login__button" type="submit">Login</button>
           </form>
@@ -36,7 +36,7 @@ class Login {
     `
   }
 
-  async afterRender() {}
+  afterRender() {}
 }
 
 export default Login;
