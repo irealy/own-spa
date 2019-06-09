@@ -18,13 +18,16 @@ class Router {
     }
   }
 
-  async init() {
+  init() {
     const request = this.parseUrlRequest();
     const parsedURL = (request.resource ? '/' + request.resource : '/') + (request.id ? '/:id' : '') + (request.verb ? '/' + request.verb : '');
     const page = this.routers[parsedURL] ? new this.routers[parsedURL] : 'null';
+
     
-    this.app.innerHTML = await page.render();
-    await page.afterRender();
+    this.app.innerHTML = '';
+    this.app.appendChild(page.render());
+    
+    page.afterRender();
   }
 
   redirect() {

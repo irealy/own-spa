@@ -1,10 +1,11 @@
+import Block from '@/Block';
 import Inputfield from '@/components/Inputfield/Inputfield';
-import createElement from '@/utils/createElement';
 
 import _ from './login.scss';
 
-class Login {
+class Login extends Block {
   constructor() {
+    super();
     this.name = 'login';
   
     this.email = new Inputfield({
@@ -27,6 +28,11 @@ class Login {
 
   }
 
+  afterRender() {
+    document.querySelector('.js-login-email').appendChild(this.email.render());
+    document.querySelector('.js-login-password').appendChild(this.password.render());
+  }
+
   get template() {
     return `
       <div class="login__container">
@@ -40,17 +46,6 @@ class Login {
       `
   }
 
-  render() {
-    this.element = createElement(this.template);
-    this.element.classList.add('login');
-    document.body.appendChild(this.element);
-
-    document.querySelector('.js-login-email').appendChild(this.email.render());
-    document.querySelector('.js-login-password').appendChild(this.password.render());
-
-    this.event();
-  }
-
   onSubmit(e) {
     e.preventDefault();
 
@@ -61,14 +56,12 @@ class Login {
   }
 
   get isValidInstances() {
-    return [this.email.isValid, this.password.isValid].includes(true);
+    return [this.email.isValid, this.password.isValid].every(input => input === true);
   }
 
   event() {
     this.element.querySelector('.login__form').addEventListener('submit', this.onSubmit);
   }
-
-  afterRender() {}
 }
 
 export default Login;

@@ -1,5 +1,3 @@
-import "@babel/polyfill";
-
 import _ from '@/css/reset.scss';
 
 import Router from '@/router';

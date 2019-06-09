@@ -1,5 +1,12 @@
-class Home {
-    async render() {
+import Block from '@/Block';
+
+class Home extends Block {
+    constructor() {
+        super();
+
+        this.name = 'home-page';
+    }
+    get template() {
         return `
             <section class="section">
                 <h1> Home </h1>
@@ -10,7 +17,8 @@ class Home {
             </section>
         `
     }
-    async afterRender() {}
+
+    afterRender() {}
 }
 
 export default Home;
