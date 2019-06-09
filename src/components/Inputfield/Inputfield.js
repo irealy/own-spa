@@ -1,54 +1,62 @@
+
+import Component from '../../Component';
+
+import addClass from '@/utils/addClass';
+import removeClass from '@/utils/removeClass';
+
 import _ from '@/components/Inputfield/inputfield.scss';
 
-class Inputfield {
+class Inputfield extends Component {
   constructor(config) {
-    this.el = 'inputfield';
+    super();
+    this.className = 'inputfield';
     this.type = config.type || 'text';
     this.value = config.value || '';
     this.placeholder = config.placeholder || '';
     this.required = config.required || false;
+    this.regexp = config.regexp;
+
+    this.state.valid = false;
+
+    this.onInput = this.onInput.bind(this);
+    
   }
 
-  async render() {
-    console.log('render');
+  onInput(e) {
+    const target = e.target;
+    const test = this.regexp.test(target.value);
+
+    if (!test) {
+      this.state.valid = false;
+      removeClass(target, 'is-success');
+      addClass(target, 'is-error');
+
+      return;
+    }
+
+    this.state.valid = true;
     
+    removeClass(target, 'is-error');
+    addClass(target, 'is-success');
+  }
+
+  get template() {
     return `
-      <div class="inputfield">
-        <input
-          type="${this.type}"
-          ${this.placeholder ? `placeholder="${this.placeholder}"` : ''}
-          ${this.value ? `value="${this.value}"` : 'value=""'}
-        />
-      </div> 
+      <input
+        type="${this.type}"
+        ${this.placeholder ? `placeholder="${this.placeholder}"` : ''}
+        ${this.value ? `value="${this.value}"` : 'value=""'}
+      />
     `
   }
 
+  get isValid() {
+    return this.state.valid;
+  }
+
   event() {
-    console.log(this.el);
-    
-    document.querySelectorAll(`.${this.el} input`).forEach(item => {
-      console.log('dsdsds');
-      
-      item.addEventListener('input', () => {
-        console.log('on input');
-      })
-    })
+    this.element.querySelector('input').addEventListener('input', this.onInput)
   }
-
-  async init() {
-    return await this.render().then((n => {
-      this.event();
-      return n;
-    }));
-    
-  }
-
-  // onInput() {
-  //   document.querySelector(`.${this.el}`).addEventListener('input', () => {
-  //     console.log('on input', this);
-      
-  //   })
-  // }
 }
 
 export default Inputfield;

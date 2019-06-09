@@ -1,11 +1,18 @@
 .inputfield {
-  border: 1px solid #f0f0f0;
   input {
+    border: 1px solid #f0f0f0;
     background-color: #fff;
     padding: 5px 10px;
     font-size: 16px;
     color: #444;
-    border: none;
     width: 100%;
+
+    &.is-error {
+      border-color: red;
+    }
+
+    &.is-success {
+      border-color: green;
+    }
   }
 }
