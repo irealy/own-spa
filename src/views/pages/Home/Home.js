@@ -12,7 +12,7 @@ class Home extends Block {
                 <h1> Home </h1>
                 <ul>
                     <li><a href="#/login">Login</a> </li>
-                    <li>Pidr</li>
+                    <li><a href="#/signup">Signup</a> </li>
                 </ul>
             </section>
         `

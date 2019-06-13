@@ -1,0 +1,14 @@
+.signup {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #f3f3f4;
+  box-shadow: 0 2px 7px rgba(black, .1);
+  padding: 30px;
+  border-radius: 5px;
+
+  &__inputfield {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}

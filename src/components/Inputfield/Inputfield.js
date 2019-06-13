@@ -1,4 +1,3 @@
-
 import Component from '../../Component';
 
 import addClass from '@/utils/addClass';
@@ -16,7 +15,10 @@ class Inputfield extends Component {
     this.required = config.required || false;
     this.regexp = config.regexp;
 
-    this.state.valid = false;
+    this.state = {
+      valid: false,
+      value: this.value
+    };
 
     this.onInput = this.onInput.bind(this);
     
@@ -25,6 +27,8 @@ class Inputfield extends Component {
   onInput(e) {
     const target = e.target;
     const test = this.regexp.test(target.value);
+
+    this.state.value = target.value;
 
     if (!test) {
       this.state.valid = false;
@@ -52,6 +56,15 @@ class Inputfield extends Component {
 
   get isValid() {
     return this.state.valid;
+  }
+
+  get fieldValue() {
+    return this.state.value;
+  }
+
+  notConfirmed() {
+    this.element.querySelector('input').classList.remove('is-success');
+    this.element.querySelector('input').classList.add('is-error');
   }
 
   event() {

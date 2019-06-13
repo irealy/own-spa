@@ -41,7 +41,7 @@ class Login extends Block {
           <div class="login__inputfield js-login-password"></div>
           <button class="login__button" type="submit">Login</button>
         </form>
-        <a href="#" class="login__link link">Register account</a>
+        <a href="#/signup" class="login__link link">Register account</a>
       </div>
       `
   }
@@ -60,7 +60,7 @@ class Login extends Block {
   }
 
   event() {
-    this.element.querySelector('.login__form').addEventListener('submit', this.onSubmit);
+    this.element.querySelector('.js-login-form').addEventListener('submit', this.onSubmit);
   }
 }
 
